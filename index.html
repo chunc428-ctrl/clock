@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JS Clock</title>
+
+    <style>
+    body {
+    margin: 0;
+    background-color: black;
+    }
+
+    .container {
+    width: 90vw;
+    height: 90vh;
+    margin: 5vh auto;
+    display: flex;
+    border: 5px solid red;
+    }
+
+
+    .hour {
+            width: 33.33%;
+            background-color: red;
+    }
+
+    .minute {
+            width: 33.33%;
+            background-color: green;
+    }
+
+    .second {
+            width: 33.33%;
+            background-color: blue;
+    }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="hour"></div>
+        <div class="minute"></div>
+        <div class="second"></div>
+    </div>
+
+    <script>
+const hour = document.querySelector(".hour");
+const minute = document.querySelector(".minute");
+const second = document.querySelector(".second");
+
+function tick() {
+    const now = new Date();
+
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
+
+    hour.style.backgroundColor = hours % 2 === 0 ? "red" : "black";
+    minute.style.backgroundColor = minutes % 2 === 0 ? "green" : "black";
+    second.style.backgroundColor = seconds % 2 === 0 ? "blue" : "black";
+}
+
+tick();
+setInterval(tick, 1000);
+    </script>
+
+</body>
+</html>
